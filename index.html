@@ -37,7 +37,7 @@ body{background:var(--black);color:var(--offwhite);font-family:var(--sans);font-
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:30px 60px;display:flex;justify-content:space-between;align-items:center;transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
 nav.scrolled{padding:16px 60px;background:rgba(8,8,8,0.96);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:0.5px solid rgba(201,168,76,0.1)}
 .nav-logo{opacity:0;animation:fadeIn 1.2s 0.2s forwards}
-.nav-logo img{height:32px;width:auto;display:block}
+.nav-logo img{height:48px;width:auto;display:block}
 .nav-links{display:flex;gap:44px;align-items:center;opacity:0;animation:fadeIn 1.2s 0.5s forwards}
 .nav-links a{font-size:9px;letter-spacing:3px;color:var(--muted);text-decoration:none;text-transform:uppercase;font-weight:300;transition:color 0.4s}
 .nav-links a:hover{color:var(--offwhite)}
@@ -65,7 +65,8 @@ nav.scrolled{padding:16px 60px;background:rgba(8,8,8,0.96);backdrop-filter:blur(
 .btn-primary{background:var(--gold);border:none;color:var(--black);font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:4px;text-transform:uppercase;padding:19px 56px;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;display:inline-block}
 .btn-primary:hover{background:var(--gold2);transform:translateY(-2px)}
 .btn-outline{background:transparent;border:0.5px solid rgba(240,237,232,0.4);color:rgba(240,237,232,0.8);font-family:var(--sans);font-size:9px;font-weight:300;letter-spacing:4px;text-transform:uppercase;padding:19px 56px;cursor:pointer;transition:all 0.4s;text-decoration:none;display:inline-block}.btn-outline:hover{border-color:rgba(201,168,76,0.4);color:var(--gold)}
-.hero-scroll{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;animation:fadeIn 1.2s 2.4s forwards}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;animation:fadeIn 1.2s 2.4s forwards;pointer-events:none}
+@media(max-width:768px){.hero-scroll{display:none}}
 .hs-label{font-size:7px;letter-spacing:5px;color:var(--dim);text-transform:uppercase}
 .hs-track{width:0.5px;height:52px;background:linear-gradient(to bottom,rgba(201,168,76,0.25),transparent);position:relative;overflow:hidden}
 .hs-track::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:55%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);animation:flowDown 2.6s ease-in-out infinite}
@@ -82,25 +83,30 @@ nav.scrolled{padding:16px 60px;background:rgba(8,8,8,0.96);backdrop-filter:blur(
 .s-text p{font-size:14px;line-height:2.2;color:var(--muted);margin-bottom:18px}
 .s-italic{font-family:var(--serif);font-size:18px;font-style:italic;color:rgba(240,237,232,0.28);margin-top:40px;display:block;letter-spacing:0.5px;line-height:1.6}
 .pilares{display:flex;flex-direction:column}
-.pilar{padding:32px 0;border-top:0.5px solid rgba(240,237,232,0.05);display:grid;grid-template-columns:36px 1fr;gap:24px;transition:padding-left 0.5s cubic-bezier(0.16,1,0.3,1)}
-.pilar:hover{padding-left:14px}
+.pilar{padding:32px 0;border-top:0.5px solid rgba(240,237,232,0.05);display:grid;grid-template-columns:36px 1fr;gap:24px;transition:padding-left 0.5s cubic-bezier(0.16,1,0.3,1);cursor:default}
+.pilar:hover,.pilar.active{padding-left:14px}
 .p-num{font-family:var(--serif);font-size:13px;color:rgba(201,168,76,0.4);padding-top:4px;transition:color 0.3s}
-.pilar:hover .p-num{color:var(--gold)}
-.p-title{font-family:var(--serif);font-size:21px;font-weight:300;color:var(--offwhite);margin-bottom:10px;transition:color 0.3s}
-.pilar:hover .p-title{color:var(--gold)}
-.p-desc{font-size:12px;line-height:2;color:var(--muted);font-weight:300}
+.pilar:hover .p-num,.pilar.active .p-num{color:var(--gold)}
+.p-title{font-family:var(--serif);font-size:21px;font-weight:300;color:var(--offwhite);margin-bottom:6px;transition:color 0.3s}
+.pilar:hover .p-title,.pilar.active .p-title{color:var(--gold)}
 
 /* ── MANIFESTO ── */
-.manifesto{padding:120px 60px;background:var(--black2);text-align:center;position:relative;overflow:hidden}
+.manifesto{padding:140px 60px;background:var(--black2);text-align:center;position:relative;overflow:hidden}
 .manifesto::before{content:'"';position:absolute;top:-100px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:500px;font-weight:200;line-height:1;color:rgba(201,168,76,0.025);pointer-events:none;user-select:none}
-.m-text{font-family:var(--serif);font-size:clamp(26px,3.8vw,50px);font-weight:200;font-style:italic;line-height:1.5;color:var(--offwhite);max-width:820px;margin:0 auto;position:relative;z-index:1}
+.m-text{font-family:var(--serif);font-size:clamp(26px,3.8vw,50px);font-weight:200;font-style:italic;line-height:1.7;color:var(--offwhite);max-width:820px;margin:0 auto;position:relative;z-index:1}
 .m-text em{color:var(--gold);font-style:normal}
-.m-rule{width:0;height:0.5px;background:var(--gold);margin:52px auto 0;transition:width 1.4s cubic-bezier(0.16,1,0.3,1)}
-.m-rule.visible{width:72px}
+.m-line{display:block;overflow:hidden}
+.m-line span{display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(0.16,1,0.3,1)}
+.manifesto.in-view .m-line span{transform:translateY(0)}
+.m-line:nth-child(1) span{transition-delay:0.1s}
+.m-line:nth-child(2) span{transition-delay:0.28s}
+.m-line:nth-child(3) span{transition-delay:0.48s}
+.m-rule{width:0;height:0.5px;background:var(--gold);margin:52px auto 0;transition:width 1.4s 0.7s cubic-bezier(0.16,1,0.3,1)}
+.manifesto.in-view .m-rule{width:72px}
 
 /* ── APLICAÇÃO ── */
 .aplicacao{padding:128px 60px;background:var(--black3)}
-.a-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin-top:72px;background:rgba(201,168,76,0.08)}
+.a-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;margin-top:40px;background:rgba(201,168,76,0.08)}
 .a-card{background:var(--black3);padding:52px 44px;transition:background 0.4s}
 .a-card:hover{background:#0f0f0d}
 .a-num{font-family:var(--serif);font-size:56px;font-weight:200;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:24px;display:block;transition:color 0.4s}
@@ -129,6 +135,19 @@ nav.scrolled{padding:16px 60px;background:rgba(8,8,8,0.96);backdrop-filter:blur(
 .local-name{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:200;color:var(--offwhite);margin-bottom:6px}
 .local-sub{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
 .local-dot{width:4px;height:4px;background:rgba(201,168,76,0.3);border-radius:50%;flex-shrink:0}
+
+/* ── A NOITE ── */
+.noite{padding:128px 60px;background:var(--black2);position:relative;overflow:hidden}
+.noite::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:0.5px;height:100%;background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.12),transparent);pointer-events:none}
+.n-label{font-size:8px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;display:block;text-align:center;margin-bottom:18px}
+.n-title{font-family:var(--serif);font-size:clamp(36px,5vw,62px);font-weight:200;line-height:1.15;text-align:center;margin-bottom:96px}
+.n-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:64px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.n-bloco{position:relative}
+.n-bloco::before{content:'';display:block;width:24px;height:0.5px;background:var(--gold);margin-bottom:28px;opacity:0.6;transition:width 0.6s cubic-bezier(0.16,1,0.3,1)}
+.n-bloco.visible::before{width:48px;opacity:1}
+.n-texto{font-family:var(--serif);font-size:clamp(17px,1.6vw,21px);font-weight:300;font-style:italic;color:var(--offwhite);line-height:1.7;margin-bottom:16px}
+.n-detalhe{font-size:12px;line-height:2;color:var(--muted);font-weight:300}
+@media(max-width:768px){.noite{padding:80px 24px}.n-grid{grid-template-columns:1fr;gap:52px}}
 
 /* ── INGRESSOS ── */
 .ingressos{padding:128px 60px;text-align:center;background:var(--black)}
@@ -169,16 +188,26 @@ nav.scrolled{padding:16px 60px;background:rgba(8,8,8,0.96);backdrop-filter:blur(
 
 /* ── FOOTER ── */
 footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;background:var(--black)}
-.f-logo img{height:28px;width:auto;display:block}
+.f-logo img{height:44px;width:auto;display:block}
 .f-mid p{font-size:9px;color:var(--dim);letter-spacing:1px;font-style:italic;text-align:center}
 .f-right p{font-size:9px;color:var(--dim);letter-spacing:1.5px;text-align:right}
 
 /* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 1s ease,transform 1s cubic-bezier(0.16,1,0.3,1)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1.1s cubic-bezier(0.16,1,0.3,1),transform 1.1s cubic-bezier(0.16,1,0.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.rd1{transition-delay:0.12s}
-.rd2{transition-delay:0.24s}
-.rd3{transition-delay:0.36s}
+.rd1{transition-delay:0.18s}
+.rd2{transition-delay:0.36s}
+.rd3{transition-delay:0.54s}
+.reveal-slow{opacity:0;transform:translateY(20px);transition:opacity 1.6s cubic-bezier(0.16,1,0.3,1),transform 1.6s cubic-bezier(0.16,1,0.3,1)}
+.reveal-slow.visible{opacity:1;transform:translateY(0)}
+
+/* ── HOVER REVEAL (pilares e blocos) ── */
+.p-desc{font-size:12px;line-height:2;color:var(--muted);font-weight:300;max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);transition:max-height 0.55s cubic-bezier(0.16,1,0.3,1),opacity 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1)}
+.pilar:hover .p-desc,.pilar.active .p-desc{max-height:120px;opacity:1;transform:translateY(0)}
+
+/* ── SEPARADORES MARCADOS ── */
+.section-break{width:100%;padding:0;position:relative}
+.section-break::after{content:'';display:block;width:100%;height:0.5px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.22),transparent)}
 
 /* ── KEYFRAMES ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -237,10 +266,10 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
     </div>
    <p style="font-size:8px;letter-spacing:4px;color:rgba(200,196,190,0.9);text-transform:uppercase;text-align:center;margin-top:-48px;margin-bottom:52px;opacity:0;animation:fadeUp 1.2s 0.45s cubic-bezier(0.16,1,0.3,1) forwards">Recepção a partir das 18h</p>
     <h1 class="hero-title">
-      <span class="tl"><span>O mundo se move</span></span>
-      <span class="tl"><span>antes de você perceber.</span></span>
+      <span class="tl"><span>A aplicabilidade</span></span>
+      <span class="tl"><span>que os relatórios de tendências não entregam.</span></span>
     </h1>
-    <p class="hero-sub">Aqui, você percebe primeiro.</p>
+    <p class="hero-sub">Do palco global para a sua decisão de amanhã.</p>
     <p class="hero-sub2">Quem viu. Viveu. Aplicou.</p>
     <div class="hero-cta">
       <a href="#ingressos" class="btn-primary">Reservar minha cadeira</a>
@@ -258,33 +287,33 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
 <!-- SOBRE -->
 <section class="sobre" id="sobre">
   <span class="s-label reveal">O que é M.E.S.A.</span>
-  <h2 class="s-title reveal">Não é um evento.<br/>É uma experiência.</h2>
+  <h2 class="s-title reveal">Não é um evento.<br/>É onde o "como" acontece.</h2>
   <div class="s-grid">
     <div class="s-text">
-      <p class="reveal">Davos. SXSW. Essas não são siglas — são onde o futuro é decidido antes de se tornar notícia. M.E.S.A. encurta essa distância.</p>
-      <p class="reveal rd1">Quem senta nessa mesa não vem para ouvir. Vem para absorver o que foi visto, vivido e já aplicado por quem esteve lá. Conhecimento que você leva direto para as suas decisões.</p>
+      <p class="reveal">O mundo não precisa de mais um reporte de tendências. O que falta é o <em style="font-style:italic;color:var(--offwhite)">como</em> — a ponte entre o que é discutido nos palcos globais e o que é decidido no campo de batalha corporativo.</p>
+      <p class="reveal rd1">M.E.S.A. é essa ponte. Reunimos mulheres líderes com quem esteve no epicentro de Davos e Austin — não para interpretar o que aconteceu, mas para transformar o que foi vivido em movimento tático para o seu próximo passo.</p>
       <span class="s-italic reveal rd2">Mentes Executivas de Saberes Aplicados.</span>
     </div>
     <div class="pilares">
       <div class="pilar reveal">
         <span class="p-num">01</span>
         <div>
-          <p class="p-title">Trilha Internacional</p>
-          <p class="p-desc">Curadoria de quem foi ao SXSW 2026 e Davos 2026. Não é interpretação — é quem viveu e aplicou.</p>
+          <p class="p-title">Orquestração Internacional</p>
+          <p class="p-desc">Jana Peres e Amanda Bonafé convertem os sinais de SXSW 2026 e Davos 2026 em movimentos táticos para liderar na policrise. Não é interpretação — é quem viveu e já aplicou.</p>
         </div>
       </div>
       <div class="pilar reveal rd1">
         <span class="p-num">02</span>
         <div>
-          <p class="p-title">Networking Curado</p>
-          <p class="p-desc">Um grupo seleto de líderes reunidos com intenção. O encontro que você não encontraria em outro lugar.</p>
+          <p class="p-title">Networking de Essência</p>
+          <p class="p-desc">Trocas curadas entre mulheres líderes. Onde a vulnerabilidade vira potência e as dores que os relatórios omitem viram solução — para os desafios reais do mercado brasileiro.</p>
         </div>
       </div>
       <div class="pilar reveal rd2">
         <span class="p-num">03</span>
         <div>
-          <p class="p-title">Experiência, não palestra</p>
-          <p class="p-desc">Uma mesa. Conversa real. Insights que você sai aplicando na semana seguinte.</p>
+          <p class="p-title">Decodificação Acionável</p>
+          <p class="p-desc">Filtramos o ruído global para desenhar o seu próximo passo. Você sai com clareza e direção — não com mais perguntas.</p>
         </div>
       </div>
     </div>
@@ -294,13 +323,13 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
 <div class="gr"></div>
 
 <!-- MANIFESTO -->
-<div class="manifesto">
-  <p class="m-text reveal">
-    Não é para todos.<br/>
-    É para quem entende o que custa<br/>
-    <em>não estar nas conversas certas.</em>
+<div class="manifesto" id="manifesto">
+  <p class="m-text">
+    <span class="m-line"><span>O mundo não precisa de mais</span></span>
+    <span class="m-line"><span>um reporte de tendências.</span></span>
+    <span class="m-line"><span><em>O que falta é o como.</em></span></span>
   </p>
-  <div class="m-rule" id="mRule"></div>
+  <div class="m-rule"></div>
 </div>
 
 <div class="gr"></div>
@@ -308,22 +337,21 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
 <!-- APLICAÇÃO -->
 <section class="aplicacao" id="aplicacao">
   <span class="s-label reveal">O que você leva</span>
-  <h2 class="s-title reveal">Visto. Vivido.<br/>Aplicado.</h2>
   <div class="a-grid">
     <div class="a-card reveal">
       <span class="a-num">01</span>
       <p class="a-title">Inteligência antecipada</p>
-      <p class="a-desc">O que foi discutido nos maiores fóruns globais de 2026, destilado por quem esteve lá e já colocou em prática. Você chega antes.</p>
+      <p class="a-desc">O que foi discutido nos maiores fóruns globais de 2026, destilado por quem esteve lá e já colocou em prática. Você chega antes — antes que vire pauta, antes que vire pressão.</p>
     </div>
     <div class="a-card reveal rd1">
       <span class="a-num">02</span>
       <p class="a-title">Conexões que importam</p>
-      <p class="a-desc">Cada pessoa nessa mesa foi escolhida. O networking não é aleatório — é uma extensão da curadoria. Você sai com relações reais.</p>
+      <p class="a-desc">Cada mulher nessa mesa foi escolhida. O networking não é aleatório — é uma extensão da curadoria. Você sai com relações reais, construídas sobre conversas que a maioria dos eventos não permite.</p>
     </div>
     <div class="a-card reveal rd2">
       <span class="a-num">03</span>
       <p class="a-title">Clareza para decidir</p>
-      <p class="a-desc">Você sai dessa mesa com perspectiva renovada e os próximos passos mais claros. Não teoria — visão de quem já fez.</p>
+      <p class="a-desc">Você sai dessa mesa com perspectiva renovada e os próximos passos mais claros. Não teoria — visão de quem já fez. Não dúvidas — direção.</p>
     </div>
   </div>
 </section>
@@ -333,14 +361,14 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
 <!-- CURADORAS -->
 <section class="curadoras" id="curadoras">
   <span class="c-label">Curadoras</span>
-  <h2 class="c-title reveal">Jana Perez<br/>e Amanda Costa Bonafé.</h2>
+  <h2 class="c-title reveal">Jana Peres<br/>e Amanda Costa Bonafé.</h2>
   <div class="c-grid">
     <div class="c-card" data-reveal>
       <div class="c-bar"></div>
-      <h3 class="c-name">Jana Perez</h3>
+      <h3 class="c-name">Jana Peres</h3>
      <p class="c-role">VP LATAM Commercial, Sustainability and SQA · Mars</p>
 <span class="c-badge">Columbia Business School · SXSW 2026</span>
-<p class="c-bio">Executiva com trajetória global em algumas das maiores empresas do mundo — Mars, PepsiCo, Diageo e Pfizer. Pós-MBA pela Columbia Business School, em Nova York. Representante da Mars no SXSW 2026, voltou com o que o mercado ainda vai discutir — e já está colocando em prática.</p>
+<p class="c-bio">Executiva com trajetória global em algumas das maiores empresas do mundo — Mars, PepsiCo, Diageo e Pfizer. Pós-MBA pela Columbia Business School, em Nova York. Representante da Mars no SXSW 2026, voltou com o que o mercado ainda vai debater — e já está colocando em prática dentro da mesa.</p>
 <a class="c-linkedin" href="https://www.linkedin.com/in/janainaperes/" target="_blank">LinkedIn →</a>    
     </div>
     <div class="c-card" data-reveal>
@@ -379,6 +407,44 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
 
 <div class="gr"></div>
 
+<!-- DIFERENCIAL DE ACESSO -->
+<section class="sobre" id="acesso" style="background:var(--black);text-align:center;padding:100px 60px;">
+  <span class="s-label reveal" style="display:block;text-align:center;">Formato</span>
+  <h2 class="s-title reveal" style="text-align:center;max-width:680px;margin:0 auto 32px;">Não é uma conferência<br/>para centenas.</h2>
+  <p class="reveal" style="font-size:14px;line-height:2.2;color:var(--muted);max-width:560px;margin:0 auto 20px;">É uma mesa para dezenas. A densidade da troca exige vagas limitadas pela curadoria — não pelo ingresso. Priorizamos profundidade sobre superfície para garantir que cada mulher sentada ao seu lado seja uma alavanca real para o seu negócio.</p>
+  <p class="reveal rd1" style="font-size:11px;letter-spacing:4px;color:rgba(201,168,76,0.8);text-transform:uppercase;margin-top:32px;">Apenas para lideranças que buscam clareza e execução imediata.</p>
+</section>
+
+<div class="gr"></div>
+
+<!-- A NOITE -->
+<div class="gr"></div>
+
+<section class="noite" id="a-noite">
+  <span class="n-label reveal">O que você vai encontrar</span>
+  <h2 class="n-title reveal">Na M.E.S.A.</h2>
+  <div class="n-grid">
+
+    <div class="n-bloco reveal">
+      <p class="n-texto">Um espaço que já diz algo antes de qualquer palavra ser dita.</p>
+      <p class="n-detalhe">A curadoria começa pelo ambiente. O espaço, a mesa, quem está sentada ao seu lado — tudo foi escolhido com intenção. Você chega e percebe, em segundos, que essa noite é diferente.</p>
+    </div>
+
+    <div class="n-bloco reveal rd1">
+      <p class="n-texto">No coração da noite, uma conversa que não acontece em nenhum outro lugar.</p>
+      <p class="n-detalhe">Jana Peres e Amanda Bonafé não apresentam slides. Elas conduzem. Trazem o que viram em Davos e Austin e transformam em diálogo real — onde as perguntas que você não consegue fazer em outros contextos finalmente têm espaço.</p>
+    </div>
+
+    <div class="n-bloco reveal rd2">
+      <p class="n-texto">O que você leva não cabe em um resumo.</p>
+      <p class="n-detalhe">Clareza sobre o que fazer na semana seguinte. Conexões com mulheres que enfrentam os mesmos desafios que você. E a sensação rara de ter estado exatamente onde precisava estar.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="gr"></div>
+
 <!-- INGRESSOS -->
 <section class="ingressos" id="ingressos">
   <span class="i-label reveal">Sua cadeira</span>
@@ -402,7 +468,7 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
       <div class="i-rule" style="background:rgba(201,168,76,0.12)"></div>
       <div class="i-item">Duas cadeiras com nomes</div>
       <div class="i-item">Você escolhe quem convida</div>
-      <div class="i-item">As melhores noites têm a pessoa certa ao lado</div>
+      <div class="i-item">As melhores noites têm a pessoa certa ao lado — a sócia, a colega, a líder que você admira</div>
       <a href="https://www.sympla.com.br/evento/m-e-s-a/3395872?share_id=copiarlink" target="_blank" class="btn-is">Reservar em par</a>
     </div>
   </div>
@@ -421,7 +487,7 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
     </div>
     <div class="f-item reveal rd1">
       <div class="f-q">Para quem é a M.E.S.A.?<div class="f-icon">+</div></div>
-      <div class="f-a">Para líderes que já chegaram longe e sabem que o próximo passo exige informação que não está disponível para todos. Para quem não tem tempo de viajar para os grandes fóruns globais — mas tem a inteligência de buscar quem foi.</div>
+      <div class="f-a">Para mulheres líderes que já chegaram longe e sabem que o próximo passo exige informação que não está disponível para todas. Para quem não tem tempo de viajar para os grandes fóruns globais — mas tem a inteligência de buscar quem foi.</div>
     </div>
     <div class="f-item reveal rd2">
       <div class="f-q">Como funciona o ingresso em par?<div class="f-icon">+</div></div>
@@ -429,7 +495,7 @@ footer{border-top:0.5px solid rgba(201,168,76,0.1);padding:44px 60px;display:fle
     </div>
     <div class="f-item reveal rd3">
       <div class="f-q">Qual o formato da noite?<div class="f-icon">+</div></div>
-      <div class="f-a">Não é uma palestra. É uma mesa — conversa densa, curadoria de quem esteve nos principais fóruns globais de 2026, networking estruturado e uma experiência que você leva para as suas decisões.</div>
+      <div class="f-a">Não é uma palestra. É uma mesa — conversa densa, curadoria de quem esteve nos principais fóruns globais de 2026, networking estruturado entre mulheres líderes e uma experiência que você leva para as suas decisões.</div>
     </div>
   </div>
 </section>
@@ -454,14 +520,38 @@ const hb=document.getElementById('hamburger');
 const nl=document.getElementById('navLinks');
 hb.addEventListener('click',()=>nl.classList.toggle('open'));
 nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+
+// Reveal geral
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
 },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal,[data-reveal],.c-card').forEach(el=>io.observe(el));
-const mr=document.getElementById('mRule');
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)mr.classList.add('visible')});
-},{threshold:0.6}).observe(mr);
+document.querySelectorAll('.reveal,[data-reveal],.c-card,.n-bloco').forEach(el=>io.observe(el));
+
+// Manifesto — reveal por linha
+const manifesto=document.getElementById('manifesto');
+if(manifesto){
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view')}});
+  },{threshold:0.4}).observe(manifesto);
+}
+
+// Pilares — hover reveal + toque mobile
+document.querySelectorAll('.pilar').forEach(pilar=>{
+  pilar.addEventListener('mouseenter',()=>{
+    document.querySelectorAll('.pilar').forEach(p=>p.classList.remove('active'));
+    pilar.classList.add('active');
+  });
+  pilar.addEventListener('click',()=>{
+    const isActive=pilar.classList.contains('active');
+    document.querySelectorAll('.pilar').forEach(p=>p.classList.remove('active'));
+    if(!isActive)pilar.classList.add('active');
+  });
+});
+// Ativa primeiro pilar por default
+const firstPilar=document.querySelector('.pilar');
+if(firstPilar)firstPilar.classList.add('active');
+
+// FAQ
 document.querySelectorAll('.f-item').forEach(item=>{
   item.querySelector('.f-q').addEventListener('click',()=>{
     const open=item.classList.contains('open');
